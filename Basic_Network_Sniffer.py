@@ -28,3 +28,11 @@ signal.signal(signal.SIGINT, signal_handler)
 
 # Ask the user for input
 net_iface = input("* Enter the interface on which to run the sniffer (e.g. 'enp0s8'): ")
+
+# Set network interface in promiscuous mode
+try:
+    subprocess.call(["ifconfig", net_iface, "promisc"], stdout=None, stderr=None, shell=False)
+except:
+    print("\nFailed to configure interface as promiscuous.\n")
+else:
+    print(f"\nInterface {net_iface} was set to PROMISC mode.\n")
