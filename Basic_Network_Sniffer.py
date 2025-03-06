@@ -36,3 +36,11 @@ except:
     print("\nFailed to configure interface as promiscuous.\n")
 else:
     print(f"\nInterface {net_iface} was set to PROMISC mode.\n")
+
+
+# Ask for the number of packets to sniff
+pkt_to_sniff = input("* Enter the number of packets to capture (0 is infinity): ")
+if int(pkt_to_sniff) != 0:
+    print(f"\nThe program will capture {pkt_to_sniff} packets.\n")
+else:
+    print("\nThe program will capture packets until the timeout expires.\n")
