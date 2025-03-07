@@ -44,3 +44,18 @@ if int(pkt_to_sniff) != 0:
     print(f"\nThe program will capture {pkt_to_sniff} packets.\n")
 else:
     print("\nThe program will capture packets until the timeout expires.\n")
+    
+# Ask for the time interval to sniff
+time_to_sniff = input("* Enter the number of seconds to run the capture: ")
+if int(time_to_sniff) != 0:
+    print(f"\nThe program will capture packets for {time_to_sniff} seconds.\n")
+    
+# Ask for the protocol filter
+proto_sniff = input("* Enter the protocol to filter by (arp|bootp|icmp|tcp|udp|dns|http|0 is all): ")
+if proto_sniff in ["arp", "bootp", "icmp", "tcp", "udp", "dns", "http"]:
+    print(f"\nThe program will capture only {proto_sniff.upper()} packets.\n")
+elif proto_sniff == "0":
+    print("\nThe program will capture all protocols.\n")
+else:
+    print("\nInvalid protocol. Exiting...\n")
+    sys.exit()
